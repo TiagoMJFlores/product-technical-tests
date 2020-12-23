@@ -12,9 +12,13 @@ typealias BoutiqueListPresenterProtocol = BotiqueListDelegate & BotiqueListDataS
 
 final class BoutiqueListPresenter {
     private var items: [MapItem] = []
+    private let boutiqueListService: BoutiqueListServiceProtocol
     weak var view: BoutiqueListViewReceiver?
 
-    
+    init(boutiqueListService: BoutiqueListServiceProtocol = BoutiqueListService()) {
+        self.boutiqueListService = boutiqueListService
+      
+    }
 }
 
 //MARK: BotiqueListDataSource
@@ -37,26 +41,36 @@ extension BoutiqueListPresenter: BotiqueListDelegate {
     
     func viewLayerLoaded() {
         
-        LocationManager.shared.locationCallBack = { location in
+        LocationManager.shared.locationCallBack = { [weak self] location, status in
+            guard let self = self else { return }
             
+            switch status {
+                case .authorizedWhenInUse, .authorizedAlways:
+                    self.boutiqueListService.doRequest(completionHandler: { data in
+                        self.items = data
+                        self.view?.reloadData()
+                    })
+                    
+                break
+          
+            case .restricted:
+                self.showErrorLocationMessageInView()
+                break
+            case .denied:
+                self.showErrorLocationMessageInView()
+                break
+            case .notDetermined:
+                break
+            @unknown default:
+                break
+            }
+           
+
         }
-        
-        AF.request(BotiqueAPIConfiguration()).validate(statusCode: 200..<299)
-            .responseDecodable { [weak self] (response: AFDataResponse<[MapItem]>)  in
-                guard let self = self else { return }
-            
-                switch response.result {
-                case let .failure(error):
-                            print(error)
-                     
-                default:
-                    guard let data = response.value else { return }
-                    self.items = data
-                    self.view?.reloadData()
-                    break
-               
-                }
-        }
+    }
+    
+    private func showErrorLocationMessageInView() {
+        view?.showErrorMessage(text: LocationStrings.errorLocationMessage)
     }
     
     func didSelectItem(at indexPath: IndexPath) {

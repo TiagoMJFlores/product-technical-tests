@@ -30,6 +30,8 @@
 		90978F6C2593D9C800050A3E /* BoutiqueListViewReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978F6B2593D9C800050A3E /* BoutiqueListViewReceiver.swift */; };
 		90978F7E2593E70800050A3E /* LocationMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978F7D2593E70800050A3E /* LocationMath.swift */; };
 		90978F872593E80700050A3E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978F862593E80700050A3E /* LocationManager.swift */; };
+		90978F942593F98300050A3E /* BoutiqueListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978F932593F98300050A3E /* BoutiqueListService.swift */; };
+		90978FA12593FD5300050A3E /* LocationStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978FA02593FD5300050A3E /* LocationStrings.swift */; };
 		CE589B26207EEEA5EA2DACE1 /* Pods_SampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC0808871E7CE874BABD30F /* Pods_SampleApp.framework */; };
 		D6CB18B7D82647121402A6D2 /* Pods_SampleAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B262675AA1CD22AC8E9F018A /* Pods_SampleAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -86,6 +88,8 @@
 		90978F6B2593D9C800050A3E /* BoutiqueListViewReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueListViewReceiver.swift; sourceTree = "<group>"; };
 		90978F7D2593E70800050A3E /* LocationMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMath.swift; sourceTree = "<group>"; };
 		90978F862593E80700050A3E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		90978F932593F98300050A3E /* BoutiqueListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueListService.swift; sourceTree = "<group>"; };
+		90978FA02593FD5300050A3E /* LocationStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStrings.swift; sourceTree = "<group>"; };
 		9D20073243E9D69B0C6B40EF /* Pods-SampleAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleAppTests.release.xcconfig"; path = "Target Support Files/Pods-SampleAppTests/Pods-SampleAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		B262675AA1CD22AC8E9F018A /* Pods_SampleAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65671E719A0902827F0B55C /* Pods-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.debug.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 		90978EFE2593C94000050A3E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				90978F8E2593EB4000050A3E /* Utils */,
 				90978F7B2593E6EC00050A3E /* Services */,
 				90978F032593C98B00050A3E /* Network */,
 				90978F022593C98600050A3E /* DataModels */,
@@ -227,6 +232,7 @@
 		90978F012593C95200050A3E /* SharedUIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				90978FA02593FD5300050A3E /* LocationStrings.swift */,
 			);
 			path = SharedUIComponents;
 			sourceTree = "<group>";
@@ -244,6 +250,7 @@
 		90978F032593C98B00050A3E /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				90978F922593F96A00050A3E /* Services */,
 				90978F542593D2F900050A3E /* Shared */,
 			);
 			path = Network;
@@ -298,18 +305,25 @@
 		90978F7B2593E6EC00050A3E /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				90978F7C2593E6F600050A3E /* Location */,
+				90978F862593E80700050A3E /* LocationManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		90978F7C2593E6F600050A3E /* Location */ = {
+		90978F8E2593EB4000050A3E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				90978F7D2593E70800050A3E /* LocationMath.swift */,
-				90978F862593E80700050A3E /* LocationManager.swift */,
 			);
-			path = Location;
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		90978F922593F96A00050A3E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				90978F932593F98300050A3E /* BoutiqueListService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		AB9A5C4FDE9C48E057F94EF5 /* Frameworks */ = {
@@ -562,6 +576,7 @@
 				90978F562593D30A00050A3E /* NetworkConstants.swift in Sources */,
 				90978F0B2593CA0300050A3E /* BoutiqueListViewController.swift in Sources */,
 				90978F642593D3A100050A3E /* BotiqueAPIConfiguration.swift in Sources */,
+				90978FA12593FD5300050A3E /* LocationStrings.swift in Sources */,
 				90978F6C2593D9C800050A3E /* BoutiqueListViewReceiver.swift in Sources */,
 				90978F7E2593E70800050A3E /* LocationMath.swift in Sources */,
 				90978F3E2593CEFD00050A3E /* Location.swift in Sources */,
@@ -574,6 +589,7 @@
 				90978F392593CEDA00050A3E /* MapItem.swift in Sources */,
 				90978F342593CDE000050A3E /* BoutiqueItemViewController.swift in Sources */,
 				90978F2A2593CBA900050A3E /* BoutiqueItemPresenter.swift in Sources */,
+				90978F942593F98300050A3E /* BoutiqueListService.swift in Sources */,
 				90978F252593CB8300050A3E /* BotiqueListPresenterProtocol.swift in Sources */,
 				90978F432593CF0A00050A3E /* Logo.swift in Sources */,
 				90978F2F2593CD4A00050A3E /* BoutiqueTableViewCell.swift in Sources */,

@@ -29,7 +29,6 @@ final class BoutiqueListViewController: UIViewController {
         presenter.view = self
         presenter.viewLayerLoaded()
         configureLayout()
-    
     }
     
     private func configureLayout() {
@@ -80,6 +79,14 @@ extension BoutiqueListViewController:  UITableViewDelegate {
 
 //MARK: UITableViewDelegate
 extension BoutiqueListViewController:  BoutiqueListViewReceiver {
+    
+    
+    func showErrorMessage(text: String) {
+        let alert = UIAlertController(title: "Alert!", message: text, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     
     func reloadData() {
         tableView.reloadData()
