@@ -9,6 +9,8 @@ import UIKit
 
 class BoutiqueTableViewCell: UITableViewCell {
 
+    private var presenter: BoutiqueItemPresenter?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,4 +22,8 @@ class BoutiqueTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func configure(with cellPresenter: BoutiqueItemPresenter) {
+        presenter = cellPresenter
+        self.textLabel?.text = cellPresenter.name
+    }
 }

@@ -7,6 +7,14 @@
 
 import Foundation
 
-final class BoutiqueItemPresenter {
+struct BoutiqueItemPresenter {
+    private let item: MapItem
     
+    var name: String {
+        return item.name
+    }
+    
+    init(item: MapItem) {
+        self.item = item
+    }
 }

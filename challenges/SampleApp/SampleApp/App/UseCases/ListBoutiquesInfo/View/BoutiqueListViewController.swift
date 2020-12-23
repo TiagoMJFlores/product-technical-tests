@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 final class BoutiqueListViewController: UIViewController {
 
@@ -14,7 +15,7 @@ final class BoutiqueListViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         view.addSubview(tableView)
-      
+    
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(BoutiqueTableViewCell.self, forCellReuseIdentifier: "BoutiqueTableViewCell")
@@ -25,8 +26,10 @@ final class BoutiqueListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
-        tableView.reloadData()
+        presenter.view = self
+        presenter.viewLayerLoaded()
         configureLayout()
+    
     }
     
     private func configureLayout() {
@@ -36,7 +39,6 @@ final class BoutiqueListViewController: UIViewController {
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-    
     }
     
 }
@@ -46,14 +48,18 @@ final class BoutiqueListViewController: UIViewController {
 extension BoutiqueListViewController: UITableViewDataSource {
     
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 5
+    return presenter.numberOfItems()
   }
     
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: "BoutiqueTableViewCell", for: indexPath) as? BoutiqueTableViewCell else {
+    let itemPresenter = presenter.item(at: indexPath)
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "BoutiqueTableViewCell", for: indexPath) as? BoutiqueTableViewCell
+    , let presenter =  itemPresenter
+          else {
         return UITableViewCell()
     }
-    cell.textLabel?.text = "test"
+   
+    cell.configure(with: presenter)
     return cell
   }
     
@@ -71,4 +77,14 @@ extension BoutiqueListViewController:  UITableViewDelegate {
     }
     
 }
+
+//MARK: UITableViewDelegate
+extension BoutiqueListViewController:  BoutiqueListViewReceiver {
+    
+    func reloadData() {
+        tableView.reloadData()
+    }
+    
+}
+
 
