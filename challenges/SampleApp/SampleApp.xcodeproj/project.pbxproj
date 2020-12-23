@@ -99,6 +99,8 @@
 		90978EC92593C90100050A3E /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				90978EFE2593C94000050A3E /* Model */,
+				90978EFD2593C93A00050A3E /* View */,
 				90978ECA2593C90100050A3E /* AppDelegate.swift */,
 				90978ECC2593C90100050A3E /* SceneDelegate.swift */,
 				90978ECE2593C90100050A3E /* ViewController.swift */,
@@ -126,6 +128,60 @@
 				90978EEE2593C90300050A3E /* Info.plist */,
 			);
 			path = SampleAppUITests;
+			sourceTree = "<group>";
+		};
+		90978EFD2593C93A00050A3E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				90978F012593C95200050A3E /* SharedUIComponents */,
+				90978EFF2593C94600050A3E /* UseCases */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		90978EFE2593C94000050A3E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				90978F032593C98B00050A3E /* Network */,
+				90978F022593C98600050A3E /* DataModels */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		90978EFF2593C94600050A3E /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				90978F002593C94D00050A3E /* ListBoutiquesInfo */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		90978F002593C94D00050A3E /* ListBoutiquesInfo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ListBoutiquesInfo;
+			sourceTree = "<group>";
+		};
+		90978F012593C95200050A3E /* SharedUIComponents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SharedUIComponents;
+			sourceTree = "<group>";
+		};
+		90978F022593C98600050A3E /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		90978F032593C98B00050A3E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
