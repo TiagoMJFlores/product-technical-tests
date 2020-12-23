@@ -13,6 +13,8 @@ typealias BoutiqueListPresenterProtocol = BotiqueListDelegate & BotiqueListDataS
 final class BoutiqueListPresenter {
     private var items: [MapItem] = []
     weak var view: BoutiqueListViewReceiver?
+
+    
 }
 
 //MARK: BotiqueListDataSource
@@ -34,6 +36,10 @@ extension BoutiqueListPresenter: BotiqueListDataSource {
 extension BoutiqueListPresenter: BotiqueListDelegate {
     
     func viewLayerLoaded() {
+        
+        LocationManager.shared.locationCallBack = { location in
+            
+        }
         
         AF.request(BotiqueAPIConfiguration()).validate(statusCode: 200..<299)
             .responseDecodable { [weak self] (response: AFDataResponse<[MapItem]>)  in
