@@ -34,9 +34,9 @@ extension BoutiqueListPresenter: BotiqueListDataSource {
 extension BoutiqueListPresenter: BotiqueListDelegate {
     
     func viewLayerLoaded() {
+        
         AF.request(BotiqueAPIConfiguration()).validate(statusCode: 200..<299)
             .responseDecodable { [weak self] (response: AFDataResponse<[MapItem]>)  in
-                print(response.result)
                 guard let self = self else { return }
             
                 switch response.result {

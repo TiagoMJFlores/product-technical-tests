@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BoutiqueItemViewController: UIViewController {
+final class BoutiqueItemViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

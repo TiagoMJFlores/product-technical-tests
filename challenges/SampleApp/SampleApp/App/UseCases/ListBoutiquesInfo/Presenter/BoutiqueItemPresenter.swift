@@ -14,6 +14,10 @@ struct BoutiqueItemPresenter {
         return item.name
     }
     
+    var imageUrl: String? {
+        return item.logo?.url
+    }
+    
     init(item: MapItem) {
         self.item = item
     }
