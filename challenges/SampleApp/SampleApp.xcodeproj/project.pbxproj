@@ -15,6 +15,9 @@
 		90978EE22593C90300050A3E /* SampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978EE12593C90300050A3E /* SampleAppTests.swift */; };
 		90978EED2593C90300050A3E /* SampleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978EEC2593C90300050A3E /* SampleAppUITests.swift */; };
 		90978F0B2593CA0300050A3E /* BoutiqueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978F0A2593CA0300050A3E /* BoutiqueListViewController.swift */; };
+		90978F202593CB3C00050A3E /* BoutiqueListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978F1F2593CB3C00050A3E /* BoutiqueListPresenter.swift */; };
+		90978F252593CB8300050A3E /* BotiqueListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978F242593CB8300050A3E /* BotiqueListProtocol.swift */; };
+		90978F2A2593CBA900050A3E /* BoutiqueItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978F292593CBA900050A3E /* BoutiqueItemPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		90978EEC2593C90300050A3E /* SampleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleAppUITests.swift; sourceTree = "<group>"; };
 		90978EEE2593C90300050A3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90978F0A2593CA0300050A3E /* BoutiqueListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueListViewController.swift; sourceTree = "<group>"; };
+		90978F1F2593CB3C00050A3E /* BoutiqueListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueListPresenter.swift; sourceTree = "<group>"; };
+		90978F242593CB8300050A3E /* BotiqueListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotiqueListProtocol.swift; sourceTree = "<group>"; };
+		90978F292593CBA900050A3E /* BoutiqueItemPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueItemPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +107,7 @@
 			children = (
 				90978ECA2593C90100050A3E /* AppDelegate.swift */,
 				90978ECC2593C90100050A3E /* SceneDelegate.swift */,
-				90978EFD2593C93A00050A3E /* View */,
+				90978EFD2593C93A00050A3E /* App */,
 				90978EFE2593C94000050A3E /* Model */,
 				90978ECE2593C90100050A3E /* ViewController.swift */,
 				90978ED32593C90300050A3E /* Assets.xcassets */,
@@ -129,13 +135,13 @@
 			path = SampleAppUITests;
 			sourceTree = "<group>";
 		};
-		90978EFD2593C93A00050A3E /* View */ = {
+		90978EFD2593C93A00050A3E /* App */ = {
 			isa = PBXGroup;
 			children = (
 				90978F012593C95200050A3E /* SharedUIComponents */,
 				90978EFF2593C94600050A3E /* UseCases */,
 			);
-			path = View;
+			path = App;
 			sourceTree = "<group>";
 		};
 		90978EFE2593C94000050A3E /* Model */ = {
@@ -158,7 +164,9 @@
 		90978F002593C94D00050A3E /* ListBoutiquesInfo */ = {
 			isa = PBXGroup;
 			children = (
-				90978F0A2593CA0300050A3E /* BoutiqueListViewController.swift */,
+				90978F152593CAF900050A3E /* Protocol */,
+				90978F1B2593CB1400050A3E /* Presenter */,
+				90978F162593CAFE00050A3E /* View */,
 			);
 			path = ListBoutiquesInfo;
 			sourceTree = "<group>";
@@ -182,6 +190,31 @@
 			children = (
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		90978F152593CAF900050A3E /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				90978F242593CB8300050A3E /* BotiqueListProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		90978F162593CAFE00050A3E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				90978F0A2593CA0300050A3E /* BoutiqueListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		90978F1B2593CB1400050A3E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				90978F1F2593CB3C00050A3E /* BoutiqueListPresenter.swift */,
+				90978F292593CBA900050A3E /* BoutiqueItemPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,8 +348,11 @@
 			files = (
 				90978F0B2593CA0300050A3E /* BoutiqueListViewController.swift in Sources */,
 				90978ECF2593C90100050A3E /* ViewController.swift in Sources */,
+				90978F202593CB3C00050A3E /* BoutiqueListPresenter.swift in Sources */,
 				90978ECB2593C90100050A3E /* AppDelegate.swift in Sources */,
 				90978ECD2593C90100050A3E /* SceneDelegate.swift in Sources */,
+				90978F2A2593CBA900050A3E /* BoutiqueItemPresenter.swift in Sources */,
+				90978F252593CB8300050A3E /* BotiqueListProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

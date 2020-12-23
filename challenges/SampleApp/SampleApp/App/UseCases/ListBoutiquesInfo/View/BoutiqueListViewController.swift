@@ -7,8 +7,10 @@
 
 import UIKit
 
-class BoutiqueListViewController: UIViewController {
+final class BoutiqueListViewController: UIViewController {
 
+    let presenter = BoutiqueListPresenter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
