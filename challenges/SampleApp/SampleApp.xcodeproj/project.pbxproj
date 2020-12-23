@@ -20,6 +20,9 @@
 		90978F2A2593CBA900050A3E /* BoutiqueItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978F292593CBA900050A3E /* BoutiqueItemPresenter.swift */; };
 		90978F2F2593CD4A00050A3E /* BoutiqueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978F2E2593CD4A00050A3E /* BoutiqueTableViewCell.swift */; };
 		90978F342593CDE000050A3E /* BoutiqueItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978F332593CDE000050A3E /* BoutiqueItemViewController.swift */; };
+		90978F392593CEDA00050A3E /* MapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978F382593CEDA00050A3E /* MapItem.swift */; };
+		90978F3E2593CEFD00050A3E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978F3D2593CEFD00050A3E /* Location.swift */; };
+		90978F432593CF0A00050A3E /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978F422593CF0A00050A3E /* Logo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		90978F292593CBA900050A3E /* BoutiqueItemPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueItemPresenter.swift; sourceTree = "<group>"; };
 		90978F2E2593CD4A00050A3E /* BoutiqueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueTableViewCell.swift; sourceTree = "<group>"; };
 		90978F332593CDE000050A3E /* BoutiqueItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueItemViewController.swift; sourceTree = "<group>"; };
+		90978F382593CEDA00050A3E /* MapItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapItem.swift; sourceTree = "<group>"; };
+		90978F3D2593CEFD00050A3E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		90978F422593CF0A00050A3E /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +191,9 @@
 		90978F022593C98600050A3E /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
+				90978F382593CEDA00050A3E /* MapItem.swift */,
+				90978F3D2593CEFD00050A3E /* Location.swift */,
+				90978F422593CF0A00050A3E /* Logo.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -353,13 +362,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				90978F0B2593CA0300050A3E /* BoutiqueListViewController.swift in Sources */,
+				90978F3E2593CEFD00050A3E /* Location.swift in Sources */,
 				90978ECF2593C90100050A3E /* ViewController.swift in Sources */,
 				90978F202593CB3C00050A3E /* BoutiqueListPresenter.swift in Sources */,
 				90978ECB2593C90100050A3E /* AppDelegate.swift in Sources */,
 				90978ECD2593C90100050A3E /* SceneDelegate.swift in Sources */,
+				90978F392593CEDA00050A3E /* MapItem.swift in Sources */,
 				90978F342593CDE000050A3E /* BoutiqueItemViewController.swift in Sources */,
 				90978F2A2593CBA900050A3E /* BoutiqueItemPresenter.swift in Sources */,
 				90978F252593CB8300050A3E /* BotiqueListProtocol.swift in Sources */,
+				90978F432593CF0A00050A3E /* Logo.swift in Sources */,
 				90978F2F2593CD4A00050A3E /* BoutiqueTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
