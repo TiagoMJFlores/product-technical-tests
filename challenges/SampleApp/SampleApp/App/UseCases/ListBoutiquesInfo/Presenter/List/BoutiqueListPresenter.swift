@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import CoreLocation
 
 typealias BoutiqueListPresenterProtocol = BotiqueListDelegate & BotiqueListDataSource
 
@@ -14,6 +15,7 @@ final class BoutiqueListPresenter {
     private var items: [MapItem] = []
     private let boutiqueListService: BoutiqueListServiceProtocol
     private let coordinator: BoutiqueListCoordinator
+
     weak var view: BoutiqueListViewReceiver?
 
     init(boutiqueListService: BoutiqueListServiceProtocol = BoutiqueListService(), coordinator: BoutiqueListCoordinator) {
@@ -42,13 +44,14 @@ extension BoutiqueListPresenter: BotiqueListDelegate {
     
     func viewLayerLoaded() {
         
-        LocationManager.shared.locationCallBack = { [weak self] location, status in
+        LocationManager.shared.locationCallBack = { [weak self] currentLocation, status in
             guard let self = self else { return }
             
             switch status {
                 case .authorizedWhenInUse, .authorizedAlways:
-                    self.boutiqueListService.doRequest(completionHandler: { data in
-                        self.items = data
+                    self.boutiqueListService.doRequest(completionHandler: { [weak self] data in
+                        guard let self = self,  let  currentLocation = currentLocation else { return }
+                        self.items = self.getFiveCloserItems(currentLocation: currentLocation, data: data)
                         self.view?.reloadData()
                     })
                     
@@ -65,9 +68,23 @@ extension BoutiqueListPresenter: BotiqueListDelegate {
             @unknown default:
                 break
             }
-           
-
+        
         }
+    }
+    
+
+    func getFiveCloserItems(currentLocation: CLLocation ,data: [MapItem]) -> [MapItem] {
+        var data = data
+        data.sort { elementOne, elementTwo in
+            let boutiqueLocationOne = CLLocation(latitude: elementOne.location.lat, longitude: elementOne.location.lon)
+            let boutiqueLocationTwo = CLLocation(latitude: elementTwo.location.lat, longitude: elementTwo.location.lon)
+          
+            let distanceToElementOne  = currentLocation.distance(from: boutiqueLocationOne)
+            let distanceToElementTwo  = currentLocation.distance(from: boutiqueLocationTwo)
+            return distanceToElementOne < distanceToElementTwo
+            
+        }
+        return Array(data.prefix(5))
     }
     
     private func showErrorLocationMessageInView() {

@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "closure #1 in closure #1 in BoutiqueListPresenter.viewLayerLoaded():BoutiqueListPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.items.last">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in BoutiqueListViewController.viewDidLoad():BoutiqueListViewController.swift">
          <PersistentStrings>
             <PersistentString

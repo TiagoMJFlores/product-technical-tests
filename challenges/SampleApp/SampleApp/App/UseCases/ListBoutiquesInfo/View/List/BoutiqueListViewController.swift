@@ -91,7 +91,6 @@ extension BoutiqueListViewController:  UITableViewDelegate {
 //MARK: UITableViewDelegate
 extension BoutiqueListViewController:  BoutiqueListViewReceiver {
     
-    
     func showErrorMessage(text: String) {
         let alert = UIAlertController(title: "Alert!", message: text, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))

@@ -60,4 +60,5 @@ struct LocationMath: LocationMathProtocol {
 
     }
 
+
 }
