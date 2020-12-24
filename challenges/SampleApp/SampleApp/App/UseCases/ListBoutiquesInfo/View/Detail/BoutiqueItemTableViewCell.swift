@@ -35,7 +35,7 @@ class BoutiqueItemTableViewCell: BoutiqueBaseTableViewCell {
     
     private func configureLocationCellType(with presenter: BoutiqueItemPresenterProtocol) {
         botiqueImageView.isHidden = false
-        botiqueImageView.image = UIImage(named: "location1")
+        botiqueImageView.image = UIImage.locationPin
      
         presenter.getAddress() { [weak self] address in
             guard let self = self else {
@@ -49,8 +49,8 @@ class BoutiqueItemTableViewCell: BoutiqueBaseTableViewCell {
     
     private func configureDirectionCellType(with presenter: BoutiqueItemPresenterProtocol) {
         botiqueImageView.isHidden = false
-        botiqueImageView.image = UIImage(named: "direction")
-        titleTextLabel.text = "Directions"
+        botiqueImageView.image = UIImage.direction
+        titleTextLabel.text = String.directions
     }
     
     override func awakeFromNib() {

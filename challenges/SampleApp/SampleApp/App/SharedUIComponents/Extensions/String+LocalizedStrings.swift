@@ -7,9 +7,15 @@
 
 import Foundation
 
-struct LocationStrings {
+extension String {
     
     static var errorLocationMessage : String {
         return "You allow location permissions to see boutiques closer to you. Please activate the permission in the setings."
     }
+    
+    static var directions : String {
+        return  "Directions"
+    }
+    
+   
 }

@@ -88,7 +88,7 @@ extension BoutiqueListPresenter: BotiqueListDelegate {
     }
     
     private func showErrorLocationMessageInView() {
-        view?.showErrorMessage(text: LocationStrings.errorLocationMessage)
+        view?.showErrorMessage(text: String.errorLocationMessage)
     }
     
     func didSelectItem(at indexPath: IndexPath) {
