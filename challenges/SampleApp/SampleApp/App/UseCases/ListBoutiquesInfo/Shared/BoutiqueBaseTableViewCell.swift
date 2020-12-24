@@ -67,9 +67,12 @@ class BoutiqueBaseTableViewCell: UITableViewCell {
             horizontalStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             horizontalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             horizontalStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            horizontalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+           
         ])
         
+        let bottomConstraint = horizontalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+        bottomConstraint.isActive = true
+        bottomConstraint.priority = UILayoutPriority(rawValue: 899)
         botiqueImageView.translatesAutoresizingMaskIntoConstraints = false
     }
 }

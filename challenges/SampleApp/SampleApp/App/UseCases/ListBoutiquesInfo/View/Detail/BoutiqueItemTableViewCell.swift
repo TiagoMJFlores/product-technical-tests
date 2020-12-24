@@ -25,23 +25,29 @@ class BoutiqueItemTableViewCell: BoutiqueBaseTableViewCell {
             titleTextLabel.text = presenter.description
             break
         case .mapLocation:
-            configureLocationCellType()
+            configureLocationCellType(with:presenter)
             break
         case .directions:
-            configureDirectionCellType()
+            configureDirectionCellType(with:presenter)
             break
         }
     }
     
-    private func configureLocationCellType() {
+    private func configureLocationCellType(with presenter: BoutiqueItemPresenterProtocol) {
         botiqueImageView.isHidden = false
         botiqueImageView.image = UIImage(named: "location1")
-        let location = presenter
-        // add geo location
-        titleTextLabel.text = "GeoLocation"
+     
+        presenter.getAddress() { [weak self] address in
+            guard let self = self else {
+                return
+            }
+            
+            self.titleTextLabel.text = address
+        }
+       
     }
     
-    private func configureDirectionCellType() {
+    private func configureDirectionCellType(with presenter: BoutiqueItemPresenterProtocol) {
         botiqueImageView.isHidden = false
         botiqueImageView.image = UIImage(named: "direction")
         titleTextLabel.text = "Directions"

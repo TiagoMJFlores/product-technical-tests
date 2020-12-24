@@ -16,11 +16,14 @@ enum BoutiqueItemCell: CaseIterable {
         directions
 }
 
+
 final class BoutiqueItemPresenter {
     private let item: MapItem
+    private let locationMath: LocationMathProtocol
     weak var view: BoutiqueItemViewReceiver?
     
-    init(item: MapItem) {
+    init(item: MapItem, locationMath: LocationMathProtocol = LocationMath()) {
+        self.locationMath = locationMath
         self.item = item
     }
 }
@@ -41,6 +44,14 @@ extension BoutiqueItemPresenter: BotiqueItemDelegate {
 //MARK: BotiqueItemDataSource
 extension BoutiqueItemPresenter: BotiqueItemDataSource {
     
+    func getAddress(completionHandler: @escaping (String) -> ()) {
+        
+        locationMath.getAddressFromLatLon(lat: item.location.lat, lon:  item.location.lon) { location in
+            completionHandler(location)
+        }
+    }
+    
+    
     var name: String {
         return item.name
     }
@@ -51,10 +62,6 @@ extension BoutiqueItemPresenter: BotiqueItemDataSource {
     
     var imageUrl: String? {
         return item.logo?.url
-    }
-    
-    var location: Location {
-        return item.location
     }
     
     
