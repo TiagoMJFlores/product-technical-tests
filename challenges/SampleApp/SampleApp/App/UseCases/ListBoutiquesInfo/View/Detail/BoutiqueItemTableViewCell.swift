@@ -53,7 +53,6 @@ class BoutiqueItemTableViewCell: BoutiqueBaseTableViewCell {
         titleTextLabel.text = "Directions"
     }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

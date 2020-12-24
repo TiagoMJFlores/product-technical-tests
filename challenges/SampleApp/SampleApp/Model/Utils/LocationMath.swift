@@ -33,13 +33,7 @@ struct LocationMath: LocationMathProtocol {
                     let pm = placemarks! as [CLPlacemark]
 
                     if pm.count > 0 {
-                        let pm = placemarks![0]
-                        print(pm.country)
-                        print(pm.locality)
-                        print(pm.subLocality)
-                        print(pm.thoroughfare)
-                        print(pm.postalCode)
-                        print(pm.subThoroughfare)
+                        let pm = placemarks![0] 
                         var addressString : String = ""
                         if pm.subLocality != nil {
                             addressString = addressString + pm.subLocality! + ", "
