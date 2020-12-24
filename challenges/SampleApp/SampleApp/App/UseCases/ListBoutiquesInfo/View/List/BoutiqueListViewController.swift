@@ -40,7 +40,6 @@ final class BoutiqueListViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         presenter.view = self
         presenter.viewLayerLoaded()
-        tableView.reloadData()
         configureLayout()
     }
     

@@ -40,7 +40,7 @@ final class BoutiqueItemPresenter {
 extension BoutiqueItemPresenter: BotiqueItemDelegate {
     
     func viewLayerLoaded() {
-    
+        view?.reloadData()
     }
     
     func didSelectItem(at indexPath: IndexPath) {

@@ -289,8 +289,8 @@
 		90978F1B2593CB1400050A3E /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				90978F1F2593CB3C00050A3E /* BoutiqueListPresenter.swift */,
-				90978F292593CBA900050A3E /* BoutiqueItemPresenter.swift */,
+				90A8452C25949D9E00A28CA3 /* Detaik */,
+				90A8452B25949D9900A28CA3 /* List */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -379,6 +379,22 @@
 				90A84523259498C400A28CA3 /* BoutiqueBaseTableViewCell.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		90A8452B25949D9900A28CA3 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				90978F1F2593CB3C00050A3E /* BoutiqueListPresenter.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		90A8452C25949D9E00A28CA3 /* Detaik */ = {
+			isa = PBXGroup;
+			children = (
+				90978F292593CBA900050A3E /* BoutiqueItemPresenter.swift */,
+			);
+			path = Detaik;
 			sourceTree = "<group>";
 		};
 		AB9A5C4FDE9C48E057F94EF5 /* Frameworks */ = {

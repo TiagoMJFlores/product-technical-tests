@@ -9,7 +9,10 @@ import UIKit
 
 class BoutiqueItemTableViewCell: BoutiqueTableViewCell {
 
+    private var presenter: BoutiqueItemPresenterProtocol?
+    
     func configure(with presenter: BoutiqueItemPresenterProtocol, type: BoutiqueItemCell) {
+        self.presenter = presenter
         titleTextLabel.text = "Hello"
     }
     

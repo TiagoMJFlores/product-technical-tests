@@ -24,6 +24,7 @@ final class BoutiqueListCoordinator {
     
     func showPhotoDetail(presenter: BoutiqueItemPresenter) {
         let photoDetail = BoutiqueItemViewController(presenter: presenter)
+        presenter.view = photoDetail
         self.navigationController.pushViewController(photoDetail, animated: true)
     }
 }

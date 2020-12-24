@@ -25,15 +25,15 @@ class BoutiqueTableViewCell: BoutiqueBaseTableViewCell {
     }
     
     private func downloadImage(from imageUrl: String) {
- 
+        
         let url = URL(string: imageUrl)
         self.botiqueImageView.kf.setImage(with: url,
                                           placeholder: UIImage(named: "placeholder"),
-                                   options: [
-                                       .scaleFactor(UIScreen.main.scale),
-                                       .transition(.fade(1)),
-                                       .cacheOriginalImage
-                                   ])
+                                          options: [
+                                            .scaleFactor(UIScreen.main.scale),
+                                            .transition(.fade(1)),
+                                            .cacheOriginalImage
+                                          ])
         
     }
     

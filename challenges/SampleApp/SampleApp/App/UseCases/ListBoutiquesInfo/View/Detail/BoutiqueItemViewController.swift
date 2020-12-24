@@ -15,7 +15,7 @@ final class BoutiqueItemViewController: UIViewController {
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(BoutiqueTableViewCell.self, forCellReuseIdentifier: "BoutiqueItemTableViewCell")
+        tableView.register(BoutiqueItemTableViewCell.self, forCellReuseIdentifier: "BoutiqueItemTableViewCell")
         return tableView
     }()
     
@@ -42,6 +42,7 @@ final class BoutiqueItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.viewLayerLoaded()
         self.view.backgroundColor = UIColor.white
       
         if let imageUrl = presenter.imageUrl {
@@ -123,6 +124,16 @@ extension BoutiqueItemViewController: UITableViewDataSource {
 extension BoutiqueItemViewController:  UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.didSelectItem(at: indexPath)
+    }
+    
+}
+
+
+//MARK: BoutiqueItemViewReceiver
+extension BoutiqueItemViewController: BoutiqueItemViewReceiver {
+    
+    func reloadData() {
+        tableView.reloadData()
     }
     
 }
