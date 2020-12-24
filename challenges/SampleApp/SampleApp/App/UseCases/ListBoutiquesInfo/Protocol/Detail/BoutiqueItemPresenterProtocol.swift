@@ -17,6 +17,7 @@ protocol BotiqueItemDataSource {
     var name: String { get }
     var description: String { get}
     var imageUrl: String? { get }
+    var location: Location { get }
    
     func item(at indexPath: IndexPath) -> BoutiqueItemCell
     func numberOfItems() -> Int

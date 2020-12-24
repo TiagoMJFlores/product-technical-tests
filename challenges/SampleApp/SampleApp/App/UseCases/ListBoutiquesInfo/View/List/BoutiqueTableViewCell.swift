@@ -13,6 +13,12 @@ class BoutiqueTableViewCell: BoutiqueBaseTableViewCell {
     private var presenter: BoutiqueItemPresenterProtocol?
     
     func configure(with cellPresenter: BoutiqueItemPresenter) {
+       
+        titleTextLabel.heightAnchor.constraint(equalTo: horizontalStackView.heightAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            botiqueImageView.widthAnchor.constraint(equalToConstant: 100),
+        ])
+        
         presenter = cellPresenter
         botiqueImageView.isHidden = false
         if let imageUrl = cellPresenter.imageUrl  {

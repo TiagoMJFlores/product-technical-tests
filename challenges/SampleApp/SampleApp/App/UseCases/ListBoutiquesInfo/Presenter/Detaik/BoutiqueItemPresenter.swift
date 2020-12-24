@@ -20,17 +20,6 @@ final class BoutiqueItemPresenter {
     private let item: MapItem
     weak var view: BoutiqueItemViewReceiver?
     
-    var name: String {
-        return item.name
-    }
-    
-    var description: String {
-        return item.welcomeDescription
-    }
-    
-    var imageUrl: String? {
-        return item.logo?.url
-    }
     init(item: MapItem) {
         self.item = item
     }
@@ -52,8 +41,25 @@ extension BoutiqueItemPresenter: BotiqueItemDelegate {
 //MARK: BotiqueItemDataSource
 extension BoutiqueItemPresenter: BotiqueItemDataSource {
     
+    var name: String {
+        return item.name
+    }
+    
+    var description: String {
+        return item.welcomeDescription
+    }
+    
+    var imageUrl: String? {
+        return item.logo?.url
+    }
+    
+    var location: Location {
+        return item.location
+    }
+    
+    
     func item(at indexPath: IndexPath) -> BoutiqueItemCell {
-        return BoutiqueItemCell.mapLocation
+        return  BoutiqueItemCell.allCases[indexPath.row]
     }
     
     func numberOfItems() -> Int {

@@ -11,7 +11,8 @@ class BoutiqueBaseTableViewCell: UITableViewCell {
 
     private (set) lazy var titleTextLabel: UILabel = {
         let titleTextLabel = UILabel()
-        titleTextLabel.text = "Hello"
+        titleTextLabel.numberOfLines = 0
+        titleTextLabel.lineBreakMode = .byWordWrapping
         titleTextLabel.textColor = UIColor.black
         return titleTextLabel
     }()
@@ -27,7 +28,7 @@ class BoutiqueBaseTableViewCell: UITableViewCell {
     }()
     
    
-    private lazy var horizontalStackView: UIStackView = {
+    private (set) lazy var horizontalStackView: UIStackView = {
         let stackView = UIStackView()
         let spacerView = UIView()
       
@@ -55,11 +56,11 @@ class BoutiqueBaseTableViewCell: UITableViewCell {
     private func configureViews(){
         self.accessoryType = .disclosureIndicator
         backgroundColor = .white
-        configureLayout()
+        configureStackViewLayout()
     }
     
 
-    private func configureLayout() {
+    private func configureStackViewLayout() {
         
         horizontalStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -67,14 +68,8 @@ class BoutiqueBaseTableViewCell: UITableViewCell {
             horizontalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             horizontalStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             horizontalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            
         ])
         
-        titleTextLabel.heightAnchor.constraint(equalTo: horizontalStackView.heightAnchor).isActive = true
         botiqueImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            botiqueImageView.widthAnchor.constraint(equalToConstant: 100),
-        ])
-        
     }
 }
