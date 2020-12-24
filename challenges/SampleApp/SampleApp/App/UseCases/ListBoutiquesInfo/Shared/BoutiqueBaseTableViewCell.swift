@@ -1,27 +1,23 @@
 //
-//  BoutiqueTableViewCell.swift
+//  BoutiqueBaseTableViewCell.swift
 //  SampleApp
 //
-//  Created by Tiago Flores on 23/12/2020.
+//  Created by Tiago Flores on 24/12/2020.
 //
 
 import UIKit
-import Kingfisher
 
-final class BoutiqueTableViewCell: UITableViewCell {
+class BoutiqueBaseTableViewCell: UITableViewCell {
 
-    private var presenter: BoutiqueItemPresenter?
-    
-    private lazy var titleTextLabel: UILabel = {
+    private (set) lazy var titleTextLabel: UILabel = {
         let titleTextLabel = UILabel()
         titleTextLabel.text = "Hello"
         titleTextLabel.textColor = UIColor.black
         return titleTextLabel
     }()
     
-    private let subTitleTextLabel = UILabel()
-    
-    private lazy var botiqueImageView: UIImageView = {
+
+    private (set) lazy var botiqueImageView: UIImageView = {
         let botiqueImageView = UIImageView()
         botiqueImageView.layer.cornerRadius = botiqueImageView.frame.width / 2
         botiqueImageView.clipsToBounds = true
@@ -31,7 +27,6 @@ final class BoutiqueTableViewCell: UITableViewCell {
     }()
     
    
-    
     private lazy var horizontalStackView: UIStackView = {
         let stackView = UIStackView()
         let spacerView = UIView()
@@ -59,40 +54,11 @@ final class BoutiqueTableViewCell: UITableViewCell {
     
     private func configureViews(){
         self.accessoryType = .disclosureIndicator
-        
-        botiqueImageView.image = UIImage(named: "dog2")
         backgroundColor = .white
-      
         configureLayout()
     }
     
-    func configure(with cellPresenter: BoutiqueItemPresenter) {
-        presenter = cellPresenter
-        botiqueImageView.isHidden = false
-        if let imageUrl = cellPresenter.imageUrl  {
-            downloadImage(from: imageUrl)
-        } else {
-            botiqueImageView.isHidden = true
-        }
-    
-        titleTextLabel .text = cellPresenter.name
-    }
-    
-    private func downloadImage(from imageUrl: String) {
- 
-        let url = URL(string: imageUrl)
-        self.botiqueImageView.kf.setImage(with: url,
-                                          placeholder: UIImage(named: "placeholder"),
-                                   options: [
-                                    //.processor(processor),
-                                       .scaleFactor(UIScreen.main.scale),
-                                       .transition(.fade(1)),
-                                       .cacheOriginalImage
-                                   ])
-        
-    }
-    
-    
+
     private func configureLayout() {
         
         horizontalStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -111,5 +77,4 @@ final class BoutiqueTableViewCell: UITableViewCell {
         ])
         
     }
-  
 }

@@ -10,14 +10,17 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    private var boutiqueListCoordinator: BoutiqueListCoordinator?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        let viewController = BoutiqueListViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
+        
+        let navigationController = UINavigationController()
+        boutiqueListCoordinator = BoutiqueListCoordinator(navigationController: navigationController)
         window?.rootViewController = navigationController
+        boutiqueListCoordinator?.start()
         window?.makeKeyAndVisible()
     }
 

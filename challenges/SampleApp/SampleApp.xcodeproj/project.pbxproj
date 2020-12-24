@@ -32,6 +32,11 @@
 		90978F872593E80700050A3E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978F862593E80700050A3E /* LocationManager.swift */; };
 		90978F942593F98300050A3E /* BoutiqueListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978F932593F98300050A3E /* BoutiqueListService.swift */; };
 		90978FA12593FD5300050A3E /* LocationStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978FA02593FD5300050A3E /* LocationStrings.swift */; };
+		90978FA92594007200050A3E /* BoutiqueListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978FA82594007200050A3E /* BoutiqueListCoordinator.swift */; };
+		90A8450F25948EBD00A28CA3 /* BoutiqueItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A8450E25948EBD00A28CA3 /* BoutiqueItemTableViewCell.swift */; };
+		90A845192594905B00A28CA3 /* BoutiqueItemPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A845182594905B00A28CA3 /* BoutiqueItemPresenterProtocol.swift */; };
+		90A8451E2594907F00A28CA3 /* BoutiqueItemViewReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A8451D2594907F00A28CA3 /* BoutiqueItemViewReceiver.swift */; };
+		90A84524259498C400A28CA3 /* BoutiqueBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A84523259498C400A28CA3 /* BoutiqueBaseTableViewCell.swift */; };
 		CE589B26207EEEA5EA2DACE1 /* Pods_SampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC0808871E7CE874BABD30F /* Pods_SampleApp.framework */; };
 		D6CB18B7D82647121402A6D2 /* Pods_SampleAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B262675AA1CD22AC8E9F018A /* Pods_SampleAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -90,6 +95,11 @@
 		90978F862593E80700050A3E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		90978F932593F98300050A3E /* BoutiqueListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueListService.swift; sourceTree = "<group>"; };
 		90978FA02593FD5300050A3E /* LocationStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStrings.swift; sourceTree = "<group>"; };
+		90978FA82594007200050A3E /* BoutiqueListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueListCoordinator.swift; sourceTree = "<group>"; };
+		90A8450E25948EBD00A28CA3 /* BoutiqueItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueItemTableViewCell.swift; sourceTree = "<group>"; };
+		90A845182594905B00A28CA3 /* BoutiqueItemPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueItemPresenterProtocol.swift; sourceTree = "<group>"; };
+		90A8451D2594907F00A28CA3 /* BoutiqueItemViewReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueItemViewReceiver.swift; sourceTree = "<group>"; };
+		90A84523259498C400A28CA3 /* BoutiqueBaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueBaseTableViewCell.swift; sourceTree = "<group>"; };
 		9D20073243E9D69B0C6B40EF /* Pods-SampleAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleAppTests.release.xcconfig"; path = "Target Support Files/Pods-SampleAppTests/Pods-SampleAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		B262675AA1CD22AC8E9F018A /* Pods_SampleAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65671E719A0902827F0B55C /* Pods-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.debug.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -222,9 +232,11 @@
 		90978F002593C94D00050A3E /* ListBoutiquesInfo */ = {
 			isa = PBXGroup;
 			children = (
+				90A84522259498A700A28CA3 /* Shared */,
 				90978F152593CAF900050A3E /* Protocol */,
 				90978F1B2593CB1400050A3E /* Presenter */,
 				90978F162593CAFE00050A3E /* View */,
+				90978FA82594007200050A3E /* BoutiqueListCoordinator.swift */,
 			);
 			path = ListBoutiquesInfo;
 			sourceTree = "<group>";
@@ -259,8 +271,8 @@
 		90978F152593CAF900050A3E /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				90978F242593CB8300050A3E /* BotiqueListPresenterProtocol.swift */,
-				90978F6B2593D9C800050A3E /* BoutiqueListViewReceiver.swift */,
+				90A845172594902100A28CA3 /* Detail */,
+				90A845162594901D00A28CA3 /* List */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -268,9 +280,8 @@
 		90978F162593CAFE00050A3E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				90978F0A2593CA0300050A3E /* BoutiqueListViewController.swift */,
-				90978F2E2593CD4A00050A3E /* BoutiqueTableViewCell.swift */,
-				90978F332593CDE000050A3E /* BoutiqueItemViewController.swift */,
+				90A8450D25948E2A00A28CA3 /* Detail */,
+				90A8450925948E1F00A28CA3 /* List */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -324,6 +335,50 @@
 				90978F932593F98300050A3E /* BoutiqueListService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		90A8450925948E1F00A28CA3 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				90978F0A2593CA0300050A3E /* BoutiqueListViewController.swift */,
+				90978F2E2593CD4A00050A3E /* BoutiqueTableViewCell.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		90A8450D25948E2A00A28CA3 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				90978F332593CDE000050A3E /* BoutiqueItemViewController.swift */,
+				90A8450E25948EBD00A28CA3 /* BoutiqueItemTableViewCell.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		90A845162594901D00A28CA3 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				90978F242593CB8300050A3E /* BotiqueListPresenterProtocol.swift */,
+				90978F6B2593D9C800050A3E /* BoutiqueListViewReceiver.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		90A845172594902100A28CA3 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				90A845182594905B00A28CA3 /* BoutiqueItemPresenterProtocol.swift */,
+				90A8451D2594907F00A28CA3 /* BoutiqueItemViewReceiver.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		90A84522259498A700A28CA3 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				90A84523259498C400A28CA3 /* BoutiqueBaseTableViewCell.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		AB9A5C4FDE9C48E057F94EF5 /* Frameworks */ = {
@@ -573,23 +628,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90978FA92594007200050A3E /* BoutiqueListCoordinator.swift in Sources */,
 				90978F562593D30A00050A3E /* NetworkConstants.swift in Sources */,
 				90978F0B2593CA0300050A3E /* BoutiqueListViewController.swift in Sources */,
 				90978F642593D3A100050A3E /* BotiqueAPIConfiguration.swift in Sources */,
+				90A8450F25948EBD00A28CA3 /* BoutiqueItemTableViewCell.swift in Sources */,
 				90978FA12593FD5300050A3E /* LocationStrings.swift in Sources */,
 				90978F6C2593D9C800050A3E /* BoutiqueListViewReceiver.swift in Sources */,
+				90A845192594905B00A28CA3 /* BoutiqueItemPresenterProtocol.swift in Sources */,
 				90978F7E2593E70800050A3E /* LocationMath.swift in Sources */,
 				90978F3E2593CEFD00050A3E /* Location.swift in Sources */,
 				90978ECF2593C90100050A3E /* ViewController.swift in Sources */,
 				90978F202593CB3C00050A3E /* BoutiqueListPresenter.swift in Sources */,
 				90978F872593E80700050A3E /* LocationManager.swift in Sources */,
 				90978F5E2593D35A00050A3E /* APIConfigurationProtocol.swift in Sources */,
+				90A8451E2594907F00A28CA3 /* BoutiqueItemViewReceiver.swift in Sources */,
 				90978ECB2593C90100050A3E /* AppDelegate.swift in Sources */,
 				90978ECD2593C90100050A3E /* SceneDelegate.swift in Sources */,
 				90978F392593CEDA00050A3E /* MapItem.swift in Sources */,
 				90978F342593CDE000050A3E /* BoutiqueItemViewController.swift in Sources */,
 				90978F2A2593CBA900050A3E /* BoutiqueItemPresenter.swift in Sources */,
 				90978F942593F98300050A3E /* BoutiqueListService.swift in Sources */,
+				90A84524259498C400A28CA3 /* BoutiqueBaseTableViewCell.swift in Sources */,
 				90978F252593CB8300050A3E /* BotiqueListPresenterProtocol.swift in Sources */,
 				90978F432593CF0A00050A3E /* Logo.swift in Sources */,
 				90978F2F2593CD4A00050A3E /* BoutiqueTableViewCell.swift in Sources */,

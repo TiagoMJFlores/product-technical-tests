@@ -10,7 +10,8 @@ import Alamofire
 
 final class BoutiqueListViewController: UIViewController {
 
-    let presenter = BoutiqueListPresenter()
+    let presenter: BoutiqueListPresenter
+    
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -23,11 +24,23 @@ final class BoutiqueListViewController: UIViewController {
     }()
     
     
+    init(presenter: BoutiqueListPresenter) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("not using storyboards")
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         presenter.view = self
         presenter.viewLayerLoaded()
+        tableView.reloadData()
         configureLayout()
     }
     
@@ -71,8 +84,7 @@ extension BoutiqueListViewController: UITableViewDataSource {
 //MARK: UITableViewDelegate
 extension BoutiqueListViewController:  UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailViewController = BoutiqueItemViewController()
-        self.navigationController?.pushViewController(detailViewController, animated: true)
+        presenter.didSelectItem(at: indexPath)
     }
     
 }

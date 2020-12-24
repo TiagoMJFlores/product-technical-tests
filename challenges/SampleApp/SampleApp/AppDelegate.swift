@@ -11,12 +11,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    private var boutiqueListCoordinator: BoutiqueListCoordinator?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let viewController = BoutiqueListViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
+      
+        let navigationController = UINavigationController()
+        boutiqueListCoordinator = BoutiqueListCoordinator(navigationController: navigationController)
         window?.rootViewController = navigationController
+        boutiqueListCoordinator?.start()
         window?.makeKeyAndVisible()
         return true
     }

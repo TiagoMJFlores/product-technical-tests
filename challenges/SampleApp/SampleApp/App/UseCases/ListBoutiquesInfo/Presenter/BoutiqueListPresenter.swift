@@ -13,11 +13,12 @@ typealias BoutiqueListPresenterProtocol = BotiqueListDelegate & BotiqueListDataS
 final class BoutiqueListPresenter {
     private var items: [MapItem] = []
     private let boutiqueListService: BoutiqueListServiceProtocol
+    private let coordinator: BoutiqueListCoordinator
     weak var view: BoutiqueListViewReceiver?
 
-    init(boutiqueListService: BoutiqueListServiceProtocol = BoutiqueListService()) {
+    init(boutiqueListService: BoutiqueListServiceProtocol = BoutiqueListService(), coordinator: BoutiqueListCoordinator) {
         self.boutiqueListService = boutiqueListService
-      
+        self.coordinator = coordinator
     }
 }
 
@@ -74,7 +75,9 @@ extension BoutiqueListPresenter: BotiqueListDelegate {
     }
     
     func didSelectItem(at indexPath: IndexPath) {
-        
+        let item = self.items[indexPath.row]
+        let itemPresenter = BoutiqueItemPresenter(item: item)
+        coordinator.showPhotoDetail(presenter: itemPresenter)
     }
     
 }
