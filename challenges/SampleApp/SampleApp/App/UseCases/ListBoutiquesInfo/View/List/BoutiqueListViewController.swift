@@ -93,7 +93,10 @@ extension BoutiqueListViewController:  BoutiqueListViewReceiver {
     
     func showErrorMessage(text: String) {
         let alert = UIAlertController(title: "Alert!", message: text, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Go to settings", style: UIAlertAction.Style.default, handler: { _ in
+            self.presenter.pressedGoToSettings()
+        }))
         self.present(alert, animated: true, completion: nil)
     }
     

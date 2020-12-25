@@ -14,12 +14,11 @@ final class LocationManager: NSObject {
     static let shared = LocationManager()
     var currentLocation: CLLocation?
     
-    var locationCallBack: ((CLLocation?, CLAuthorizationStatus) -> Void)?
+    var listenLocationChanges: ((CLLocation?, CLAuthorizationStatus) -> Void)?
     
     private override init() {
         super.init()
         locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
     }
 }
@@ -31,7 +30,7 @@ extension LocationManager : CLLocationManagerDelegate {
     
         if let location = locations.first {
             currentLocation = location
-            locationCallBack?(location, .authorizedWhenInUse)
+            listenLocationChanges?(location, .authorizedWhenInUse)
         }
   
     }
@@ -39,6 +38,7 @@ extension LocationManager : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         
     }
+    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .notDetermined:
@@ -54,13 +54,23 @@ extension LocationManager : CLLocationManagerDelegate {
             manager.startUpdatingLocation()
             break
         case .restricted:
-            locationCallBack?(nil, .restricted)
+            listenLocationChanges?(nil, .restricted)
             break
         case .denied:
-            locationCallBack?(nil, .denied)
+            listenLocationChanges?(nil, .denied)
             break
         default:
             break
         }
     }
+    
+    func askPermission() {
+        locationManager.requestWhenInUseAuthorization()
+    }
+    
+    func getAuthorizationStatus() -> CLAuthorizationStatus  {
+        return locationManager.authorizationStatus
+    }
+    
+   
 }

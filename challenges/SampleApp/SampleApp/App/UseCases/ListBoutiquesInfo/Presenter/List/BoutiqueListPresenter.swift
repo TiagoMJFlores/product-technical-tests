@@ -44,7 +44,14 @@ extension BoutiqueListPresenter: BotiqueListDelegate {
     
     func viewLayerLoaded() {
         
-        LocationManager.shared.locationCallBack = { [weak self] currentLocation, status in
+        if LocationManager.shared.getAuthorizationStatus() == .denied ||
+            LocationManager.shared.getAuthorizationStatus() == .restricted {
+            self.showLocationPermissionErrorMessage()
+        } else {
+            LocationManager.shared.askPermission()
+        }
+        
+        LocationManager.shared.listenLocationChanges = { [weak self] currentLocation, status in
             guard let self = self else { return }
             
             switch status {
@@ -58,10 +65,10 @@ extension BoutiqueListPresenter: BotiqueListDelegate {
                 break
           
             case .restricted:
-                self.showErrorLocationMessageInView()
+                self.showLocationPermissionErrorMessage()
                 break
             case .denied:
-                self.showErrorLocationMessageInView()
+                self.showLocationPermissionErrorMessage()
                 break
             case .notDetermined:
                 break
@@ -87,7 +94,7 @@ extension BoutiqueListPresenter: BotiqueListDelegate {
         return Array(data.prefix(5))
     }
     
-    private func showErrorLocationMessageInView() {
+    private func showLocationPermissionErrorMessage() {
         view?.showErrorMessage(text: String.errorLocationMessage)
     }
     
@@ -97,4 +104,7 @@ extension BoutiqueListPresenter: BotiqueListDelegate {
         coordinator.showPhotoDetail(presenter: itemPresenter)
     }
     
+    func pressedGoToSettings() {
+        UIApplication.shared.open(URL(string:UIApplication.openSettingsURLString)!)
+    }
 }

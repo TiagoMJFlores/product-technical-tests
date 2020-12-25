@@ -13,6 +13,7 @@ protocol BotiqueListDelegate {
 }
 
 protocol BotiqueListDataSource {
+    func pressedGoToSettings()
     func item(at indexPath: IndexPath) -> BoutiqueItemPresenter?
     func numberOfItems() -> Int
 }
