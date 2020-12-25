@@ -29,7 +29,9 @@ extension BoutiqueListPresenter: BotiqueListDataSource {
     
     func item(at indexPath: IndexPath) -> BoutiqueItemPresenter? {
         let item = self.items[indexPath.row]
-        let itemPresenter = BoutiqueItemPresenter(item: item)
+        
+        let mapCoordinator = MapLocationCoordinator(navigationController: coordinator.navigationController)
+        let itemPresenter = BoutiqueItemPresenter(item: item, coordinator: mapCoordinator)
         return itemPresenter
     }
     
@@ -100,7 +102,8 @@ extension BoutiqueListPresenter: BotiqueListDelegate {
     
     func didSelectItem(at indexPath: IndexPath) {
         let item = self.items[indexPath.row]
-        let itemPresenter = BoutiqueItemPresenter(item: item)
+        let mapCoordinator = MapLocationCoordinator(navigationController: self.coordinator.navigationController)
+        let itemPresenter = BoutiqueItemPresenter(item: item, coordinator: mapCoordinator)
         coordinator.showPhotoDetail(presenter: itemPresenter)
     }
     

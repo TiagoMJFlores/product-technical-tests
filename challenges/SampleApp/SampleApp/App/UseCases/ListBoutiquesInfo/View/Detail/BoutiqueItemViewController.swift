@@ -117,7 +117,6 @@ extension BoutiqueItemViewController: UITableViewDataSource {
     return cell
   }
     
-    
 }
 
 //MARK: UITableViewDelegate

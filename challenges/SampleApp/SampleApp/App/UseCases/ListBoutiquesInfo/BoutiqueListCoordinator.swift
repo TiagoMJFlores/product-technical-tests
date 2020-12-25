@@ -10,7 +10,7 @@ import UIKit
 
 final class BoutiqueListCoordinator {
     
-    private let navigationController: UINavigationController
+    private (set) var navigationController: UINavigationController
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController

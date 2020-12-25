@@ -10,7 +10,7 @@ import Foundation
 typealias BoutiqueItemPresenterProtocol = BotiqueItemDelegate & BotiqueItemDataSource
 
 
-enum BoutiqueItemCell: CaseIterable {
+enum BoutiqueItemCell: Int, CaseIterable {
     case description,
          mapLocation,
         directions
@@ -20,9 +20,11 @@ enum BoutiqueItemCell: CaseIterable {
 final class BoutiqueItemPresenter {
     private let item: MapItem
     private let locationMath: LocationMathProtocol
+    private let mapCoordinator: MapLocationCoordinator
     weak var view: BoutiqueItemViewReceiver?
     
-    init(item: MapItem, locationMath: LocationMathProtocol = LocationMath()) {
+    init(item: MapItem, locationMath: LocationMathProtocol = LocationMath(), coordinator: MapLocationCoordinator) {
+        self.mapCoordinator = coordinator
         self.locationMath = locationMath
         self.item = item
     }
@@ -37,6 +39,15 @@ extension BoutiqueItemPresenter: BotiqueItemDelegate {
     
     func didSelectItem(at indexPath: IndexPath) {
         
+        switch indexPath.row {
+        case BoutiqueItemCell.mapLocation.rawValue:
+            mapCoordinator.start()
+            break
+        case BoutiqueItemCell.directions.rawValue:
+            break
+        default:
+            break
+        }
     }
     
 }

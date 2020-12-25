@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		28D0E1BB36889B3CBE29DDF8 /* Pods_SampleApp_SampleAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1B4939CE57646F639005D0 /* Pods_SampleApp_SampleAppUITests.framework */; };
+		908C9E152596AD6D001FE949 /* MapLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908C9E142596AD6D001FE949 /* MapLocationViewController.swift */; };
+		908C9E1A2596AEBA001FE949 /* MapLocationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908C9E192596AEBA001FE949 /* MapLocationCoordinator.swift */; };
+		908C9E1F2596AF0D001FE949 /* MapLocationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908C9E1E2596AF0D001FE949 /* MapLocationPresenter.swift */; };
 		90978ECB2593C90100050A3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978ECA2593C90100050A3E /* AppDelegate.swift */; };
 		90978ECD2593C90100050A3E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978ECC2593C90100050A3E /* SceneDelegate.swift */; };
 		90978ECF2593C90100050A3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978ECE2593C90100050A3E /* ViewController.swift */; };
@@ -66,6 +69,9 @@
 		4171107788E4E0D38E10D469 /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.release.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
 		53B22348EF106E24A5FD8FAA /* Pods-SampleAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SampleAppTests/Pods-SampleAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7DC0808871E7CE874BABD30F /* Pods_SampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		908C9E142596AD6D001FE949 /* MapLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationViewController.swift; sourceTree = "<group>"; };
+		908C9E192596AEBA001FE949 /* MapLocationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationCoordinator.swift; sourceTree = "<group>"; };
+		908C9E1E2596AF0D001FE949 /* MapLocationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationPresenter.swift; sourceTree = "<group>"; };
 		90978EC72593C90100050A3E /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90978ECA2593C90100050A3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90978ECC2593C90100050A3E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +154,40 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		908C9E102596AD20001FE949 /* ShowMapLocations */ = {
+			isa = PBXGroup;
+			children = (
+				908C9E132596AD3B001FE949 /* Protocol */,
+				908C9E122596AD30001FE949 /* Presenter */,
+				908C9E112596AD2C001FE949 /* View */,
+				908C9E192596AEBA001FE949 /* MapLocationCoordinator.swift */,
+			);
+			path = ShowMapLocations;
+			sourceTree = "<group>";
+		};
+		908C9E112596AD2C001FE949 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				908C9E142596AD6D001FE949 /* MapLocationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		908C9E122596AD30001FE949 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				908C9E1E2596AF0D001FE949 /* MapLocationPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		908C9E132596AD3B001FE949 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		90978EBE2593C90100050A3E = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +266,7 @@
 		90978EFF2593C94600050A3E /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				908C9E102596AD20001FE949 /* ShowMapLocations */,
 				90978F002593C94D00050A3E /* ListBoutiquesInfo */,
 			);
 			path = UseCases;
@@ -662,18 +703,21 @@
 				90A845312594B9B100A28CA3 /* UIImage+AppImageStrings.swift in Sources */,
 				90A8450F25948EBD00A28CA3 /* BoutiqueItemTableViewCell.swift in Sources */,
 				90A845402594BB8600A28CA3 /* String+LocalizedStrings.swift in Sources */,
+				908C9E152596AD6D001FE949 /* MapLocationViewController.swift in Sources */,
 				90978F6C2593D9C800050A3E /* BoutiqueListViewReceiver.swift in Sources */,
 				90A845192594905B00A28CA3 /* BoutiqueItemPresenterProtocol.swift in Sources */,
 				90978F7E2593E70800050A3E /* LocationMath.swift in Sources */,
 				90978F3E2593CEFD00050A3E /* Location.swift in Sources */,
 				90978ECF2593C90100050A3E /* ViewController.swift in Sources */,
 				90978F202593CB3C00050A3E /* BoutiqueListPresenter.swift in Sources */,
+				908C9E1A2596AEBA001FE949 /* MapLocationCoordinator.swift in Sources */,
 				90978F872593E80700050A3E /* LocationManager.swift in Sources */,
 				90978F5E2593D35A00050A3E /* APIConfigurationProtocol.swift in Sources */,
 				90A8451E2594907F00A28CA3 /* BoutiqueItemViewReceiver.swift in Sources */,
 				90978ECB2593C90100050A3E /* AppDelegate.swift in Sources */,
 				90978ECD2593C90100050A3E /* SceneDelegate.swift in Sources */,
 				90978F392593CEDA00050A3E /* MapItem.swift in Sources */,
+				908C9E1F2596AF0D001FE949 /* MapLocationPresenter.swift in Sources */,
 				90978F342593CDE000050A3E /* BoutiqueItemViewController.swift in Sources */,
 				90978F2A2593CBA900050A3E /* BoutiqueItemPresenter.swift in Sources */,
 				90978F942593F98300050A3E /* BoutiqueListService.swift in Sources */,
@@ -852,6 +896,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D54RNC6WC3;
 				INFOPLIST_FILE = SampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -872,6 +917,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D54RNC6WC3;
 				INFOPLIST_FILE = SampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
