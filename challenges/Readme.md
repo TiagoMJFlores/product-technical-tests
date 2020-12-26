@@ -1,8 +1,15 @@
+
 ## App running
 
 <p align="center">
   <img src="/challenges/appVideo.gif" width="350px" />
 </p>
+
+## Dependencies
+
+*  Alamofire - Alamofire is a HTTP networking library written in Swift
+*  Kingfisher  - Kingfisher is a library for downloading and caching images from the web
+
 
 ## Architecture
 
@@ -30,13 +37,14 @@ Structure:
 
 * Model -> Network - Network layer built on an abstraction on Alamofire
 
+##  Xcode project Disk Location
+
+Please check the SampleApp in this directory and run the SampleApp.xcworkspace
+
+
 * Model -> Services - Classes that interact with iOS services such as CoreLocation and external Maps. 
 
 * Model -> DataModels - Contains the classes that store the data after the JSON deserialization. Implement the Codable protocol.
 
 
-## Dependencies
-
-*  Alamofire - Alamofire is a HTTP networking library written in Swift
-*  Kingfisher  - Kingfisher is a library for downloading and caching images from the web
 
