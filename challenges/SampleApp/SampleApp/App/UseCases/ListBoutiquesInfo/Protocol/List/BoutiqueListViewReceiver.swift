@@ -10,4 +10,6 @@ import Foundation
 protocol BoutiqueListViewReceiver: class {
     func reloadData()
     func showErrorMessage(text: String)
+    func startLoadingIndicator()
+    func stopLoadingIndicator()
 }

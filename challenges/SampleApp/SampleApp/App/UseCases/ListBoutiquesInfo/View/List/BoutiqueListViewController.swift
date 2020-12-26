@@ -10,8 +10,8 @@ import Alamofire
 
 final class BoutiqueListViewController: UIViewController {
 
-    let presenter: BoutiqueListPresenter
-    
+    private let presenter: BoutiqueListPresenter
+    private var activityView = UIActivityIndicatorView(style: .gray)
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -103,6 +103,16 @@ extension BoutiqueListViewController:  BoutiqueListViewReceiver {
     
     func reloadData() {
         tableView.reloadData()
+    }
+    
+    func startLoadingIndicator() {
+        activityView.center = self.view.center
+        self.view.addSubview(activityView)
+        activityView.startAnimating()
+    }
+    
+    func stopLoadingIndicator() {
+        activityView.stopAnimating()
     }
     
 }

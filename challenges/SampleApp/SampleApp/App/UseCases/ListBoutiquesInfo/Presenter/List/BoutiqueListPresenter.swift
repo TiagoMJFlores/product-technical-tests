@@ -58,9 +58,11 @@ extension BoutiqueListPresenter: BotiqueListDelegate {
             
             switch status {
                 case .authorizedWhenInUse, .authorizedAlways:
+                    self.view?.startLoadingIndicator()
                     self.boutiqueListService.doRequest(completionHandler: { [weak self] data in
                         guard let self = self,  let  currentLocation = currentLocation else { return }
                         self.items = self.getFiveCloserItems(currentLocation: currentLocation, data: data)
+                        self.view?.stopLoadingIndicator()
                         self.view?.reloadData()
                     })
                     
