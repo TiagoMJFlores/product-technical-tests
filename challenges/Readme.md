@@ -37,14 +37,15 @@ Structure:
 
 * Model -> Network - Network layer built on an abstraction on Alamofire
 
-##  Xcode project Disk Location
-
-Please check the SampleApp in this directory and run the SampleApp.xcworkspace
-
-
 * Model -> Services - Classes that interact with iOS services such as CoreLocation and external Maps. 
 
 * Model -> DataModels - Contains the classes that store the data after the JSON deserialization. Implement the Codable protocol.
 
 
+
+
+
+##  Xcode project Disk Location
+
+Please check the SampleApp in this directory and run the SampleApp.xcworkspace
 
