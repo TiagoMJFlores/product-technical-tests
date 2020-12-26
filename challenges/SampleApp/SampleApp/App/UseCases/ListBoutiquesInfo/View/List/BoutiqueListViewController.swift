@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 
+
 final class BoutiqueListViewController: UIViewController {
 
     private let presenter: BoutiqueListPresenter
@@ -19,7 +20,7 @@ final class BoutiqueListViewController: UIViewController {
     
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(BoutiqueTableViewCell.self, forCellReuseIdentifier: "BoutiqueTableViewCell")
+        tableView.register(cell: BoutiqueTableViewCell.self)
         return tableView
     }()
     
@@ -63,12 +64,12 @@ extension BoutiqueListViewController: UITableViewDataSource {
     
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let itemPresenter = presenter.item(at: indexPath)
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: "BoutiqueTableViewCell", for: indexPath) as? BoutiqueTableViewCell
-    , let presenter =  itemPresenter
+    
+    guard let presenter =  itemPresenter
           else {
         return UITableViewCell()
     }
-   
+    let cell = tableView.dequeueReusableCell(for: BoutiqueTableViewCell.self, for: indexPath)
     cell.configure(with: presenter)
     return cell
   }

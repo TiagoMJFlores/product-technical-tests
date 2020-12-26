@@ -15,7 +15,7 @@ final class BoutiqueItemViewController: UIViewController {
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(BoutiqueItemTableViewCell.self, forCellReuseIdentifier: "BoutiqueItemTableViewCell")
+        tableView.register(cell: BoutiqueItemTableViewCell.self)
         return tableView
     }()
     
@@ -106,15 +106,10 @@ extension BoutiqueItemViewController: UITableViewDataSource {
     
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: "BoutiqueItemTableViewCell", for: indexPath) as? BoutiqueItemTableViewCell
-          else {
-        return UITableViewCell()
-    }
-    
+    let cell = tableView.dequeueReusableCell(for: BoutiqueItemTableViewCell.self, for: indexPath)
     let cellType = presenter.item(at: indexPath)
     cell.selectionStyle = .none
     cell.configure(with: presenter, type: cellType)
-    //cell.configure(with: presenter)
     return cell
   }
     
