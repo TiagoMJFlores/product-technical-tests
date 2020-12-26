@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MapKit
 
 final class MapLocationPresenter {
     
@@ -23,7 +24,10 @@ final class MapLocationPresenter {
 extension MapLocationPresenter: MapLocationDelegate {
     
     func viewLayerLoaded() {
-        view?.addLocation(location: mapItemInFocus.location)
+        let mapAnnotation = MapAnnotation(id: mapItemInFocus.id)
+        let pinLocation = CLLocationCoordinate2D(latitude: mapItemInFocus.location.lat, longitude: mapItemInFocus.location.lon)
+        mapAnnotation.coordinate = pinLocation
+        view?.addLocation(mapAnnotation: mapAnnotation)
     }
     
 }

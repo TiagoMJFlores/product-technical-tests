@@ -46,9 +46,9 @@
             filePath = "SampleApp/App/UseCases/ShowMapLocations/View/MapLocationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "setPinUsingMKPointAnnotation(location:)"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "setPinUsingMKPointAnnotation(pin:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

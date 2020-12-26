@@ -9,5 +9,5 @@ import Foundation
 
 protocol MapLocationViewReceiver: class {
     
-    func addLocation(location: Location)
+    func addLocation(mapAnnotation: MapAnnotation)
 }

@@ -29,7 +29,6 @@ final class BoutiqueItemViewController: UIViewController {
    
     private var presenter: BoutiqueItemPresenterProtocol
     
-    
     init(presenter: BoutiqueItemPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)

@@ -73,18 +73,16 @@ extension MapLocationViewController: MKMapViewDelegate {
 
 // MARK: MapLocationViewReceiver
 extension MapLocationViewController: MapLocationViewReceiver {
-    func addLocation(location: Location) {
-        let pinLocation = CLLocationCoordinate2D(latitude: location.lat, longitude: location.lon)
-        setPinUsingMKPointAnnotation(location: pinLocation)
+    
+    func addLocation(mapAnnotation: MapAnnotation) {
+        setPinUsingMKPointAnnotation(pin: mapAnnotation)
     }
     
-    
-    func setPinUsingMKPointAnnotation(location: CLLocationCoordinate2D){
-       let annotation = MKPointAnnotation()
-       annotation.coordinate = location
-       let coordinateRegion = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 800, longitudinalMeters: 800)
+    func setPinUsingMKPointAnnotation(pin: MapAnnotation){
+      
+       let coordinateRegion = MKCoordinateRegion(center: pin.coordinate, latitudinalMeters: 800, longitudinalMeters: 800)
        mapView.setRegion(coordinateRegion, animated: true)
-       mapView.addAnnotation(annotation)
+       mapView.addAnnotation(pin)
     }
     
    
