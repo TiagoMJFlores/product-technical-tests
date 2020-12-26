@@ -112,6 +112,7 @@ extension BoutiqueItemViewController: UITableViewDataSource {
     }
     
     let cellType = presenter.item(at: indexPath)
+    cell.selectionStyle = .none
     cell.configure(with: presenter, type: cellType)
     //cell.configure(with: presenter)
     return cell

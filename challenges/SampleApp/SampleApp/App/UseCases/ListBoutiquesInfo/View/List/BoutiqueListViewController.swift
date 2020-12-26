@@ -83,6 +83,7 @@ extension BoutiqueListViewController: UITableViewDataSource {
 extension BoutiqueListViewController:  UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.didSelectItem(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
