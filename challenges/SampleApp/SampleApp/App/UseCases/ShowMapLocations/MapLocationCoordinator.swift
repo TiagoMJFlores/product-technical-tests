@@ -10,14 +10,17 @@ import UIKit
 final class MapLocationCoordinator {
     
     private let navigationController: UINavigationController
+    private let location: Location
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, location: Location) {
         self.navigationController = navigationController
+        self.location = location
     }
     
     func start() {
-        let presenter = MapLocationPresenter()
+        let presenter = MapLocationPresenter(initialLocation: location)
         let initialViewController = MapLocationViewController(presenter: presenter)
+        presenter.view = initialViewController
         self.navigationController.pushViewController(initialViewController, animated: true)
     }
     

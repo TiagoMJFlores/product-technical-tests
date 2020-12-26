@@ -9,7 +9,19 @@ import Foundation
 
 final class MapLocationPresenter {
     
-    //let initialLocation: Location
-    //let otherLocations: [Location]
+    let initialLocation: Location
+    weak var view: MapLocationViewReceiver?
+    
+    init(initialLocation: Location) {
+        self.initialLocation = initialLocation
+    }
+}
+
+// MARK: MapLocationDelegate
+extension MapLocationPresenter: MapLocationDelegate {
+    
+    func viewLayerLoaded() {
+        view?.addLocation(location: initialLocation)
+    }
     
 }

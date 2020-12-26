@@ -12,6 +12,8 @@
 		908C9E1A2596AEBA001FE949 /* MapLocationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908C9E192596AEBA001FE949 /* MapLocationCoordinator.swift */; };
 		908C9E1F2596AF0D001FE949 /* MapLocationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908C9E1E2596AF0D001FE949 /* MapLocationPresenter.swift */; };
 		908C9E2A2596B71E001FE949 /* UITableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908C9E292596B71E001FE949 /* UITableView+Register.swift */; };
+		908C9E2F2596B868001FE949 /* MapLocationPresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908C9E2E2596B868001FE949 /* MapLocationPresenterProtocols.swift */; };
+		908C9E342596B88D001FE949 /* MapLocationViewReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908C9E332596B88D001FE949 /* MapLocationViewReceiver.swift */; };
 		90978ECB2593C90100050A3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978ECA2593C90100050A3E /* AppDelegate.swift */; };
 		90978ECD2593C90100050A3E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978ECC2593C90100050A3E /* SceneDelegate.swift */; };
 		90978ECF2593C90100050A3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90978ECE2593C90100050A3E /* ViewController.swift */; };
@@ -74,6 +76,8 @@
 		908C9E192596AEBA001FE949 /* MapLocationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationCoordinator.swift; sourceTree = "<group>"; };
 		908C9E1E2596AF0D001FE949 /* MapLocationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationPresenter.swift; sourceTree = "<group>"; };
 		908C9E292596B71E001FE949 /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
+		908C9E2E2596B868001FE949 /* MapLocationPresenterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationPresenterProtocols.swift; sourceTree = "<group>"; };
+		908C9E332596B88D001FE949 /* MapLocationViewReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationViewReceiver.swift; sourceTree = "<group>"; };
 		90978EC72593C90100050A3E /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90978ECA2593C90100050A3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90978ECC2593C90100050A3E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 		908C9E132596AD3B001FE949 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				908C9E2E2596B868001FE949 /* MapLocationPresenterProtocols.swift */,
+				908C9E332596B88D001FE949 /* MapLocationViewReceiver.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -722,6 +728,7 @@
 				90978F392593CEDA00050A3E /* MapItem.swift in Sources */,
 				908C9E1F2596AF0D001FE949 /* MapLocationPresenter.swift in Sources */,
 				90978F342593CDE000050A3E /* BoutiqueItemViewController.swift in Sources */,
+				908C9E2F2596B868001FE949 /* MapLocationPresenterProtocols.swift in Sources */,
 				90978F2A2593CBA900050A3E /* BoutiqueItemPresenter.swift in Sources */,
 				908C9E2A2596B71E001FE949 /* UITableView+Register.swift in Sources */,
 				90978F942593F98300050A3E /* BoutiqueListService.swift in Sources */,
@@ -729,6 +736,7 @@
 				90978F252593CB8300050A3E /* BotiqueListPresenterProtocol.swift in Sources */,
 				90978F432593CF0A00050A3E /* Logo.swift in Sources */,
 				90978F2F2593CD4A00050A3E /* BoutiqueTableViewCell.swift in Sources */,
+				908C9E342596B88D001FE949 /* MapLocationViewReceiver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
