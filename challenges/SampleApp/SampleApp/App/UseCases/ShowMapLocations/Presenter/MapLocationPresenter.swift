@@ -9,11 +9,13 @@ import Foundation
 
 final class MapLocationPresenter {
     
-    let initialLocation: Location
+    let mapItemInFocus: MapItem
+    let secondaryMapItems: [MapItem]
     weak var view: MapLocationViewReceiver?
     
-    init(initialLocation: Location) {
-        self.initialLocation = initialLocation
+    init(mapItemInFocus: MapItem, secondaryMapItems: [MapItem]) {
+        self.mapItemInFocus = mapItemInFocus
+        self.secondaryMapItems = secondaryMapItems
     }
 }
 
@@ -21,7 +23,7 @@ final class MapLocationPresenter {
 extension MapLocationPresenter: MapLocationDelegate {
     
     func viewLayerLoaded() {
-        view?.addLocation(location: initialLocation)
+        view?.addLocation(location: mapItemInFocus.location)
     }
     
 }

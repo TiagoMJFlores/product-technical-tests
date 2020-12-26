@@ -29,10 +29,8 @@ extension BoutiqueListPresenter: BotiqueListDataSource {
     
     func item(at indexPath: IndexPath) -> BoutiqueItemPresenter? {
         let item = self.items[indexPath.row]
-        
-        let mapCoordinator = MapLocationCoordinator(navigationController: coordinator.navigationController, location: item.location)
-        let itemPresenter = BoutiqueItemPresenter(item: item, coordinator: mapCoordinator)
-        return itemPresenter
+        let boutiqueItemPresenter = makeBoutiqueItemPresenter(from: item)
+        return boutiqueItemPresenter
     }
     
     func numberOfItems() -> Int {
@@ -104,11 +102,18 @@ extension BoutiqueListPresenter: BotiqueListDelegate {
     
     func didSelectItem(at indexPath: IndexPath) {
         let item = self.items[indexPath.row]
-        let mapCoordinator = MapLocationCoordinator(navigationController: self.coordinator.navigationController, location: item.location)
-        let itemPresenter = BoutiqueItemPresenter(item: item, coordinator: mapCoordinator)
+        let itemPresenter = makeBoutiqueItemPresenter(from: item)
         coordinator.showPhotoDetail(presenter: itemPresenter)
     }
     
+    private func makeBoutiqueItemPresenter(from item: MapItem) -> BoutiqueItemPresenter {
+        let secondaryMapItems = items.filter {
+            return $0.id != item.id
+        }
+        let mapCoordinator = MapLocationCoordinator(navigationController: self.coordinator.navigationController, mapItem: item, secondaryMapItems: secondaryMapItems)
+        let itemPresenter = BoutiqueItemPresenter(item: item, coordinator: mapCoordinator)
+        return itemPresenter
+    }
     func pressedGoToSettings() {
         UIApplication.shared.open(URL(string:UIApplication.openSettingsURLString)!)
     }
