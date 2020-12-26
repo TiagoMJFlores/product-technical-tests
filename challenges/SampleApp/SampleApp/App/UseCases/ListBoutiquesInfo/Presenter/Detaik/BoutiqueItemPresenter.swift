@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 typealias BoutiqueItemPresenterProtocol = BotiqueItemDelegate & BotiqueItemDataSource
 
@@ -22,8 +23,10 @@ final class BoutiqueItemPresenter {
     private let locationMath: LocationMathProtocol
     private let mapCoordinator: MapLocationCoordinator
     weak var view: BoutiqueItemViewReceiver?
+    var mapDirectionsProcessor: MapDirectionsProcessorProtocol
     
-    init(item: MapItem, locationMath: LocationMathProtocol = LocationMath(), coordinator: MapLocationCoordinator) {
+    init(item: MapItem, locationMath: LocationMathProtocol = LocationMath(), coordinator: MapLocationCoordinator, mapDirectionsProcessor: MapDirectionsProcessorProtocol = MapDirectionsProcessor()) {
+        self.mapDirectionsProcessor = mapDirectionsProcessor
         self.mapCoordinator = coordinator
         self.locationMath = locationMath
         self.item = item
@@ -44,6 +47,13 @@ extension BoutiqueItemPresenter: BotiqueItemDelegate {
             mapCoordinator.start()
             break
         case BoutiqueItemCell.directions.rawValue:
+            
+            let pinLocation = CLLocationCoordinate2D(latitude: item.location.lat, longitude:  item.location.lon)
+            guard let userLocation = LocationManager.shared.currentLocation else {
+                return
+            }
+            
+            mapDirectionsProcessor.showDirections(location: pinLocation, userCoord:  userLocation)
             break
         default:
             break
