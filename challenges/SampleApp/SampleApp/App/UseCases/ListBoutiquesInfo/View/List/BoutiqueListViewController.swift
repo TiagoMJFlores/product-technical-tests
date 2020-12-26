@@ -16,6 +16,7 @@ final class BoutiqueListViewController: UIViewController {
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
+        tableView.tableFooterView = UIView()
         view.addSubview(tableView)
     
         tableView.dataSource = self

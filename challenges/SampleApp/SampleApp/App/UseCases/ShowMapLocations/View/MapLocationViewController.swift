@@ -79,7 +79,7 @@ extension MapLocationViewController: MKMapViewDelegate {
 extension MapLocationViewController: MapLocationViewReceiver {
     
     func addLocation(mapAnnotation: MapAnnotation) {
-        let coordinateRegion = MKCoordinateRegion(center: mapAnnotation.coordinate, latitudinalMeters: 800, longitudinalMeters: 800)
+        let coordinateRegion = MKCoordinateRegion(center: mapAnnotation.coordinate, latitudinalMeters: 2500, longitudinalMeters: 2500)
         mapView.setRegion(coordinateRegion, animated: true)
         setPinUsingMKPointAnnotation(pin: mapAnnotation)
     }
