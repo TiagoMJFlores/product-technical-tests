@@ -305,9 +305,7 @@
 		90978F022593C98600050A3E /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
-				90978F382593CEDA00050A3E /* MapItem.swift */,
-				90978F3D2593CEFD00050A3E /* Location.swift */,
-				90978F422593CF0A00050A3E /* Logo.swift */,
+				90B99A752597510600B539A3 /* MapItem */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -459,6 +457,16 @@
 				908C9E292596B71E001FE949 /* UITableView+Register.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		90B99A752597510600B539A3 /* MapItem */ = {
+			isa = PBXGroup;
+			children = (
+				90978F382593CEDA00050A3E /* MapItem.swift */,
+				90978F3D2593CEFD00050A3E /* Location.swift */,
+				90978F422593CF0A00050A3E /* Logo.swift */,
+			);
+			path = MapItem;
 			sourceTree = "<group>";
 		};
 		AB9A5C4FDE9C48E057F94EF5 /* Frameworks */ = {

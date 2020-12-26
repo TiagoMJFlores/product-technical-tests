@@ -9,6 +9,10 @@ import Foundation
 
 extension String {
     
+    static var closestBoutiques : String {
+        return "5 Closest Boutiques"
+    }
+
     static var errorLocationMessage : String {
         return "You allow location permissions to see boutiques closer to you. Please activate the permission in the setings."
     }

@@ -43,6 +43,7 @@ final class BoutiqueItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewLayerLoaded()
+        title = presenter.name
         
         self.view.backgroundColor = UIColor.white
       
@@ -61,7 +62,7 @@ final class BoutiqueItemViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
     
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
              imageView.heightAnchor.constraint(equalToConstant: 150),
             imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
@@ -145,11 +146,4 @@ extension BoutiqueItemViewController: BoutiqueItemViewReceiver {
     func reloadData() {
         tableView.reloadData()
     }
-    
 }
-
-/*
-//MARK: UIScrollViewDelegate
-extension BoutiqueItemViewController: UIScrollViewDelegate {
-  
-}*/

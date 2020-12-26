@@ -27,6 +27,10 @@ final class BoutiqueListPresenter {
 //MARK: BotiqueListDataSource
 extension BoutiqueListPresenter: BotiqueListDataSource {
     
+    var title: String {
+        return String.closestBoutiques
+    }
+    
     func item(at indexPath: IndexPath) -> BoutiqueItemPresenter? {
         let item = self.items[indexPath.row]
         let boutiqueItemPresenter = makeBoutiqueItemPresenter(from: item)
@@ -114,6 +118,7 @@ extension BoutiqueListPresenter: BotiqueListDelegate {
         let itemPresenter = BoutiqueItemPresenter(item: item, coordinator: mapCoordinator)
         return itemPresenter
     }
+    
     func pressedGoToSettings() {
         UIApplication.shared.open(URL(string:UIApplication.openSettingsURLString)!)
     }
