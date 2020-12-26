@@ -10,3 +10,7 @@ import Foundation
 protocol MapLocationDelegate {
     func viewLayerLoaded()
 }
+
+protocol MapLocationDataSource {
+    var mapItemInFocusId: String { get}
+}

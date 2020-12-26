@@ -10,7 +10,7 @@ import MapKit
 
 final class MapLocationViewController: UIViewController {
 
-    private let presenter: MapLocationDelegate
+    private let presenter: MapItemPresenterProtocol
     
     private lazy var mapView: MKMapView = {
        let mapView = MKMapView()
@@ -20,13 +20,21 @@ final class MapLocationViewController: UIViewController {
         return mapView
     }()
     
+    init(presenter: MapItemPresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("not using storyboards")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLayout()
         presenter.viewLayerLoaded()
     }
     
-
     private func configureLayout() {
         mapView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -38,16 +46,6 @@ final class MapLocationViewController: UIViewController {
        
         mapView.showsUserLocation = true
     }
-    
-    init(presenter: MapLocationPresenter) {
-        self.presenter = presenter
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("not using storyboards")
-    }
-
 }
 
 
@@ -62,8 +60,14 @@ extension MapLocationViewController: MKMapViewDelegate {
        annotationView.canShowCallout = true
        if annotation is MKUserLocation {
           return nil
-       } else if annotation is MKPointAnnotation {
-            annotationView.image =  UIImage.bigLocationPin
+       } else if let annotation = annotation as? MapAnnotation {
+
+            if annotation.id == presenter.mapItemInFocusId {
+                annotationView.image =  UIImage.bigLocationPin
+            } else {
+                annotationView.image =  UIImage.locationPin
+            }
+      
           return annotationView
        } else {
           return nil
@@ -75,13 +79,16 @@ extension MapLocationViewController: MKMapViewDelegate {
 extension MapLocationViewController: MapLocationViewReceiver {
     
     func addLocation(mapAnnotation: MapAnnotation) {
+        let coordinateRegion = MKCoordinateRegion(center: mapAnnotation.coordinate, latitudinalMeters: 800, longitudinalMeters: 800)
+        mapView.setRegion(coordinateRegion, animated: true)
         setPinUsingMKPointAnnotation(pin: mapAnnotation)
     }
     
+    func addLocations(mapAnnotations: [MapAnnotation]) {
+        mapView.addAnnotations(mapAnnotations)
+    }
+    
     func setPinUsingMKPointAnnotation(pin: MapAnnotation){
-      
-       let coordinateRegion = MKCoordinateRegion(center: pin.coordinate, latitudinalMeters: 800, longitudinalMeters: 800)
-       mapView.setRegion(coordinateRegion, animated: true)
        mapView.addAnnotation(pin)
     }
     

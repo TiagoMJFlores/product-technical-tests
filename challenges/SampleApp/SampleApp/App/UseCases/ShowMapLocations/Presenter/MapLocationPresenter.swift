@@ -8,6 +8,10 @@
 import Foundation
 import MapKit
 
+
+typealias MapItemPresenterProtocol = MapLocationDelegate & MapLocationDataSource
+
+
 final class MapLocationPresenter {
     
     let mapItemInFocus: MapItem
@@ -24,10 +28,30 @@ final class MapLocationPresenter {
 extension MapLocationPresenter: MapLocationDelegate {
     
     func viewLayerLoaded() {
-        let mapAnnotation = MapAnnotation(id: mapItemInFocus.id)
-        let pinLocation = CLLocationCoordinate2D(latitude: mapItemInFocus.location.lat, longitude: mapItemInFocus.location.lon)
-        mapAnnotation.coordinate = pinLocation
+        let mapAnnotation =  makeMapAnnotation(from: mapItemInFocus)
         view?.addLocation(mapAnnotation: mapAnnotation)
+        let secondaryMapAnnotations: [MapAnnotation] = secondaryMapItems.map { item in
+            let mapAnnotation =  makeMapAnnotation(from: item)
+            return mapAnnotation
+        }
+        view?.addLocations(mapAnnotations: secondaryMapAnnotations)
+    }
+    
+    private func makeMapAnnotation(from mapItem: MapItem) -> MapAnnotation {
+        let mapAnnotation = MapAnnotation(id: mapItem.id)
+        mapAnnotation.title = mapItem.name
+        let pinLocation = CLLocationCoordinate2D(latitude: mapItem.location.lat, longitude: mapItem.location.lon)
+        mapAnnotation.coordinate = pinLocation
+        return mapAnnotation
+    }
+    
+}
+
+// MARK: MapLocationDelegate
+extension MapLocationPresenter:  MapLocationDataSource {
+    
+    var mapItemInFocusId: String {
+        mapItemInFocus.id
     }
     
 }
