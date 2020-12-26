@@ -10,7 +10,7 @@ I chose the MVP architecture
 
 Structure:
 
-* View - UIKit related classes) and UIViewController that implement the ViewReceiver protocols (used for Presenter to communicate to View)
+* View - UIKit related classes and UIViewController that implement the ViewReceiver protocols (used for Presenter to communicate to View)
 
 * Presenter - Here are the presenters who implement the Delegate and DataSource Protocols
 
@@ -18,6 +18,6 @@ Structure:
 
 ## Dependencies
 
-*  Alamofire - Alamofire is a HTTP networking library written in Swift.
+*  Alamofire - Alamofire is a HTTP networking library written in Swift
 *  Kingfisher  - Kingfisher is a library for downloading and caching images from the web
 
