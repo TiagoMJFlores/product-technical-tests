@@ -1,7 +1,7 @@
 ## App running
 
 <p align="center">
-  <img width="250" src="/challenges/app.gif" width="100%" />
+  <img src="/challenges/app.gif" width="100%" />
 </p>
 
 ## Architecture
