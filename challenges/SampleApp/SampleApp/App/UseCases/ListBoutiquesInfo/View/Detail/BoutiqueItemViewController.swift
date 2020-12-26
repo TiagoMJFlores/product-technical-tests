@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 final class BoutiqueItemViewController: UIViewController {
-
+  
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         view.addSubview(tableView)
@@ -43,6 +43,7 @@ final class BoutiqueItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewLayerLoaded()
+        
         self.view.backgroundColor = UIColor.white
       
         if let imageUrl = presenter.imageUrl {
@@ -62,16 +63,16 @@ final class BoutiqueItemViewController: UIViewController {
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
-            imageView.heightAnchor.constraint(equalToConstant: 150),
+             imageView.heightAnchor.constraint(equalToConstant: 150),
             imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
-            tableView.topAnchor.constraint(equalTo:  imageView.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo:  imageView.bottomAnchor, constant: 0),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
         ])
+        
         let bottomVerticalConstraint = tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         bottomVerticalConstraint.priority = UILayoutPriority(rawValue: 800)
         bottomVerticalConstraint.isActive = true
-        
         
     }
     
@@ -120,7 +121,21 @@ extension BoutiqueItemViewController:  UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.didSelectItem(at: indexPath)
     }
+ 
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+        if imageView.frame.size.height <= 0 {
+            return
+        }
+        let scale =  1 - abs(scrollView.contentOffset.y)  / scrollView.frame.size.height
+        view.setNeedsLayout()
+        self.imageView.transform = CGAffineTransform(scaleX: scale, y: scale)
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+
+    }
 }
 
 
@@ -132,3 +147,9 @@ extension BoutiqueItemViewController: BoutiqueItemViewReceiver {
     }
     
 }
+
+/*
+//MARK: UIScrollViewDelegate
+extension BoutiqueItemViewController: UIScrollViewDelegate {
+  
+}*/
