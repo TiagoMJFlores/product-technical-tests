@@ -1,7 +1,7 @@
 ## App running
 
 <p align="center">
-  <img width="300" src="/challenges/video.gif" width="100%" />
+  <img width="250" src="/challenges/app.gif" width="100%" />
 </p>
 
 ## Architecture
@@ -18,5 +18,6 @@ Structure:
 
 ## Dependencies
 
-*  Alamofire
-*  Kingfisher 
+*  Alamofire - Alamofire is a HTTP networking library written in Swift.
+*  Kingfisher  - Kingfisher is a library for downloading and caching images from the web
+
